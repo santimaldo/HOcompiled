@@ -28,8 +28,14 @@ funcion que suma los numeros:
 	.size	main, .-main
 	.globl	add_numbers
 	.type	add_numbers, @function
-```
+``` 
 
 
 4. **Explicar qué quieren decir los símbolos que se crean en el objeto**  
-5. **¿En qué se diferencian los símbolos del objeto y del ejecutable?**
+
+Quiere decir que el editor de texto no puede codificar lo que esta escrito en codigo maquina.  
+
+5. **¿En qué se diferencian los símbolos del objeto y del ejecutable?**  
+
+El ejecutable tiene mas simbolos, porque ya hizo el linkeado. Es decir, tiene la informacion de donde (en la memoria) buscar las funciones externas.
+w
