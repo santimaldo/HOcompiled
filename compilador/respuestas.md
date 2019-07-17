@@ -28,14 +28,28 @@ funcion que suma los numeros:
 	.size	main, .-main
 	.globl	add_numbers
 	.type	add_numbers, @function
-``` 
+```
 
 
 4. **Explicar qué quieren decir los símbolos que se crean en el objeto**  
 
-Quiere decir que el editor de texto no puede codificar lo que esta escrito en codigo maquina.  
+hago `$ nm calculator.o` y obtengo:   
+```
+000000000000003c T add_numbers
+0000000000000000 T main
+                 U printf
+```
+los simbolos T y U signifincan:
+```
+"T"
+"t" The symbol is in the text (code) section.
 
-5. **¿En qué se diferencian los símbolos del objeto y del ejecutable?**  
+"U" The symbol is undefined.
+```
+(lo averigue haciendo `$ man nm`).  
 
-El ejecutable tiene mas simbolos, porque ya hizo el linkeado. Es decir, tiene la informacion de donde (en la memoria) buscar las funciones externas.
-w
+La funcion print no esta definida porque el objeto no esta linkeado todavia. Este archivo no se puede ejecutar porque no sabe de donde sacar la funcion printf
+
+5. **¿En qué se diferencian los símbolos del objeto y del ejecutable?**
+
+  El ejecutable tiene más simbolos, porque ya hizo el linkeo. A diferencia del .o, este no tiene simbolos NO DEFINIDOS. Los que tienen U son porque se buscan en tiempo de ejecucion. 
